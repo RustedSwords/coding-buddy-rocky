@@ -73,10 +73,11 @@ Try these example prompts to see Rocky in action:
 Rocky automatically creates project directories with your generated code. Current examples include:
 
 - `generated_calculator_project/` – A working calculator web app
-https://github.com/user-attachments/assets/9d568f5b-a400-4fb6-86a4-eef875376565
 - `generated_todo-list_project/` – A fully functional to-do list
-https://github.com/user-attachments/assets/bd088fec-37c1-4441-a3b2-bd935e93b62e
 - `generated_grocery-list_project/` – A grocery list manager
+
+https://github.com/user-attachments/assets/9d568f5b-a400-4fb6-86a4-eef875376565
+https://github.com/user-attachments/assets/bd088fec-37c1-4441-a3b2-bd935e93b62e
 
 ## 🛠️ Project Structure
 
