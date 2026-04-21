@@ -87,7 +87,7 @@ Rocky - Coding Buddy/
 │   ├── states.py          # State definitions for the agentic workflow
 │   ├── tools.py           # Available tools for code generation
 │   └── __init__.py
-├── generated_*/            # Output directories for generated projects
+├── generated_project/            # Output directories for generated projects
 └── README.md
 ```
 
