@@ -2,6 +2,17 @@
 
 **Rocky** is an AI-powered multi-agent system that transforms natural language project descriptions into fully functional, working code projects. Built with [LangGraph](https://github.com/langchain-ai/langgraph), it works like having a complete development team that understands your vision and builds it from scratch—file by file.
 
+<table>
+  <tr>
+    <td align="center">
+      <video src="calculator.mkv" controls width="400"></video>
+    </td>
+    <td align="center">
+      <video src="todo-list.mkv" controls width="400"></video>
+    </td>
+  </tr>
+</table>
+
 ## 🏗️ Architecture
 
 Rocky operates as a coordinated three-agent development pipeline:
