@@ -5,10 +5,10 @@
 <table>
   <tr>
     <td align="center">
-      <video src="calculator.mkv" controls width="400"></video>
+      <video src="calculator.mkv"></video>
     </td>
     <td align="center">
-      <video src="todo-list.mkv" controls width="400"></video>
+      <video src="todo-list.mkv"></video>
     </td>
   </tr>
 </table>
