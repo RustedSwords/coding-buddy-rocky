@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Grocery List</h1>
+    
+    <form id="add-item-form">
+        <div>
+            <label for="item-name">Item Name:</label>
+            <input type="text" id="item-name" name="item-name" required>
+        </div>
+        
+        <div>
+            <label for="item-quantity">Quantity:</label>
+            <input type="number" id="item-quantity" name="item-quantity" min="1" required>
+        </div>
+        
+        <button type="button" id="add-btn">Add Item</button>
+    </form>
+    
+    <ul id="grocery-list" aria-label="Grocery list items"></ul>
+    <script src="script.js"></script>
+</body>
+</html>

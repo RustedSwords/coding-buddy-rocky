@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Todo App</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="script/utils.js" defer></script>
+  <script src="script/app.js" defer></script>
+</head>
+<body>
+  <div class="app-background">
+    <div class="todo-container">
+      <!-- Header -->
+      <div class="todo-header">
+        <h1>Task Manager</h1>
+        <p>Manage your tasks efficiently with priority levels</p>
+      </div>
+
+      <!-- Input Section -->
+      <section class="input-section" aria-label="Add new task">
+        <form id="task-form" aria-label="Task input form">
+          <input 
+            type="text" 
+            id="task-title" 
+            placeholder="Add a new task..." 
+            maxlength="100" 
+            aria-label="Task title"
+            required
+          >
+          <select id="task-priority" aria-label="Task priority">
+            <option value="low">Low Priority</option>
+            <option value="medium" selected>Medium Priority</option>
+            <option value="high">High Priority</option>
+          </select>
+          <input 
+            type="text" 
+            id="task-tags" 
+            placeholder="Tags (optional, comma-separated)" 
+            aria-label="Task tags (comma-separated)"
+          >
+          <button type="submit" id="addTask" class="button button-primary" aria-label="Add task">
+            Add Task
+          </button>
+        </form>
+      </section>
+
+      <!-- Main Content Area -->
+      <div class="todo-main">
+        <!-- Filters Section -->
+        <section class="filters-section" aria-label="Task filters">
+          <div class="filter-buttons" role="tablist" aria-label="Task status filters">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-btn" data-filter="pending" role="tab" aria-selected="false">Active</button>
+            <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+          </div>
+          <div class="tag-filters" id="tag-filters" aria-label="Tag filters">
+            <!-- Tag filter buttons will be dynamically added here -->
+          </div>
+        </section>
+
+        <!-- Task List -->
+        <div class="task-list" id="task-list" role="list" aria-label="Task list" aria-live="polite">
+          <!-- Hidden template for task items -->
+          <template id="task-item-template">
+            <div class="task-item" role="listitem" aria-label="Task item">
+              <div class="task-header">
+                <h3 class="task-title"></h3>
+                <span class="task-priority"></span>
+                <div class="task-tags"></div>
+              </div>
+              <div class="task-footer">
+                <span class="task-date"></span>
+                <div class="task-actions">
+                  <button class="btn-complete" aria-label="Toggle completion">✓</button>
+                  <button class="btn-edit" aria-label="Edit task">Edit</button>
+                  <button class="btn-delete" aria-label="Delete task">Delete</button>
+                </div>
+              </div>
+            </div>
+          </template>
+          <!-- Tasks will be dynamically added here -->
+        </div>
+      </div>
+
+      <!-- Sidebar / Stats -->
+      <aside class="todo-sidebar" aria-label="Task statistics">
+        <div class="filter-group">
+          <h3>Stats</h3>
+          <div class="task-meta">
+            <div>Total: <span id="totalTasks">0</span></div>
+            <div>Completed: <span id="completedTasks">0</span></div>
+            <div>Pending: <span id="pendingTasks">0</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* Root variables for color scheme and spacing */
+:root {
+  --primary-color: #222;
+  --secondary-color: #333;
+  --accent-color: #007bff;
+  --accent-hover: #0056b3;
+  --text-color: #fff;
+  --error-color: #dc3545;
+  --error-bg: #f8d7da;
+  --button-bg: #444;
+  --button-hover: #555;
+  --button-active: #666;
+  --operator-color: #ff9500;
+  --operator-hover: #e08900;
+  --display-bg: #000;
+  --btn-size: 60px;
+  --btn-gap: 10px;
+  --border-radius: 8px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --display-font-size: 3rem;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Calculator container */
+#calculator {
+  background: var(--primary-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Display area - styled prominently at top */
+#display {
+  background: var(--display-bg);
+  color: var(--text-color);
+  text-align: right;
+  padding: 20px 16px;
+  font-size: var(--display-font-size);
+  font-weight: 300;
+  min-height: var(--btn-size);
+  width: 100%;
+  border: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Error state styling for display */
+#display.error {
+  background: var(--error-color);
+  color: var(--error-bg);
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Button grid container */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--btn-gap);
+  padding: var(--btn-gap);
+}
+
+/* Base button styles */
+.button {
+  background: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  height: var(--btn-size);
+  width: var(--btn-size);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Span two columns for 0 button and clear */
+.button.span-two {
+  grid-column: span 2;
+  width: calc(var(--btn-size) * 2 + var(--btn-gap));
+}
+
+/* Operator button styles */
+.button.operator {
+  background: var(--secondary-color);
+  color: var(--operator-color);
+  font-size: 1.75rem;
+}
+
+/* Equals button styling */
+.button.equals {
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Clear button styling */
+.button[data-action="clear"] {
+  background: var(--secondary-color);
+  color: var(--error-color);
+}
+
+/* Backspace button styling */
+.button[data-action="backspace"] {
+  background: var(--secondary-color);
+}
+
+/* Interactive states: hover */
+.button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button.operator:hover {
+  background: var(--operator-hover);
+  color: #fff;
+}
+
+.button.equals:hover {
+  background: var(--accent-hover);
+}
+
+.button[data-action="clear"]:hover {
+  background: #444;
+}
+
+/* Interactive states: active/clicked */
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  background: var(--button-active);
+}
+
+.button.operator:active {
+  background: var(--operator-color);
+  color: #fff;
+}
+
+.button.equals:active {
+  background: var(--accent-color);
+}
+
+/* Interactive states: focus */
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Focus visible for keyboard navigation */
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Focus state for display area */
+#display:focus {
+  outline: none;
+}
+
+/* Responsive design: stack on mobile */
+@media (max-width: 480px) {
+  :root {
+    --btn-size: 55px;
+    --btn-gap: 8px;
+    --display-font-size: 2.5rem;
+  }
+
+  body {
+    padding: 10px;
+    background: #fff;
+  }
+
+  #calculator {
+    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .button {
+    height: var(--btn-size);
+    width: var(--btn-size);
+    font-size: 1.25rem;
+    padding: 12px;
+  }
+
+  /* Adjust button spacing on smaller screens */
+  .button.span-two {
+    width: calc(var(--btn-size) * 2 + var(--btn-gap));
+  }
+
+  /* Ensure display is full-width on mobile */
+  #display {
+    padding: 16px 12px;
+  }
+}
+
+/* Extra small devices (small phones) */
+@media (max-width: 320px) {
+  :root {
+    --btn-size: 50px;
+    --btn-gap: 6px;
+    --display-font-size: 2rem;
+  }
+
+  .button {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+
+  .button.operator {
+    font-size: 1.5rem;
+  }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  #display.error {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  :root {
+    --button-bg: #000;
+    --button-hover: #111;
+    --button-active: #222;
+    --operator-color: #ffae00;
+    --accent-color: #000;
+    --accent-hover: #222;
+  }
+
+  .button {
+    border: 1px solid #555;
+  }
+
+  .button:focus {
+    border: 2px solid #fff;
+    box-shadow: none;
+  }
+
+  #display {
+    border: 1px solid #333;
+  }
+
+  #display.error {
+    background: #dc3545;
+    color: #fff;
+  }
+}
+
+/* Print styles to hide calculator when printing */
+@media print {
+  #calculator {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

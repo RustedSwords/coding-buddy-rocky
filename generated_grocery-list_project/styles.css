@@ -1,0 +1,239 @@
+/* Base Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Form Container */
+#add-item-form {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#add-item-form div {
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+#add-item-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #495057;
+}
+
+#add-item-form input[type="text"],
+#add-item-form input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+#add-item-form input[type="text"]:focus,
+#add-item-form input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Validation Error Styles */
+#add-item-form input[aria-invalid="true"],
+#add-item-form input.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+#add-item-form .error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+/* Button */
+#add-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#add-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#add-btn:active {
+    transform: translateY(0);
+}
+
+#add-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+#add-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Grocery List Container */
+#grocery-list {
+    list-style: none;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Grocery List Item */
+#grocery-list li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+#grocery-list li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual List Item Elements */
+.item-name {
+    flex: 1;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    color: #2c3e50;
+}
+
+.item-quantity {
+    font-weight: 600;
+    color: #6c757d;
+    padding: 0 10px;
+}
+
+/* Actions Container */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #007bff;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+.delete-btn:active {
+    transform: scale(0.95);
+}
+
+.delete-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.5);
+}
+
+/* Completed Item Styles */
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+    background-color: #e9ecef;
+}
+
+.completed .item-name {
+    text-decoration: line-through;
+}
+
+/* Empty State */
+#grocery-list:empty::after {
+    content: "No items in your grocery list. Add some items above!";
+    display: block;
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    #add-item-form {
+        padding: 15px;
+    }
+    
+    #grocery-list li {
+        flex-wrap: wrap;
+    }
+    
+    .actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+    
+    .delete-btn {
+        width: 100%;
+    }
+}
